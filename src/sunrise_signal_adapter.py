@@ -14,6 +14,8 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 import MetaTrader5 as mt5
+if __import__("os").environ.get("EXNESS_BOT_ID"):
+    from exness_arena import mt5
 from typing import Dict, Optional, Tuple, List
 import logging
 from pathlib import Path

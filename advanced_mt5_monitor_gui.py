@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Advanced MT5 Trading Monitor GUI with Strategy Phase Tracking
@@ -61,6 +61,8 @@ def dynamic_import(module_name: str, package_name: Optional[str] = None):
 # Try to import required modules
 try:
     import MetaTrader5 as mt5
+    if __import__("os").environ.get("EXNESS_BOT_ID"):
+        from exness_arena import mt5
     import pandas as pd
     import numpy as np
     DEPENDENCIES_AVAILABLE = True
@@ -4511,7 +4513,7 @@ class AdvancedMT5TradingMonitorGUI:
                 "sl": sl_price,
                 "tp": tp_price,
                 "deviation": 20,
-                "magic": 234000,
+                "magic": 26111303,
                 "comment": f"Sunrise_{direction}",
                 "type_time": mt5.ORDER_TIME_GTC,  # type: ignore
                 "type_filling": filling_type,  # Use broker-compatible mode
